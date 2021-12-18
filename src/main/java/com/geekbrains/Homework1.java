@@ -1,6 +1,6 @@
 package com.geekbrains;
 
-public class Main {
+public class Homework1 {
         public static void main (String[] args){
             printThreeWords();
             checkSumSign();
