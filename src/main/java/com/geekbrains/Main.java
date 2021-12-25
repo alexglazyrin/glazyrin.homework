@@ -4,11 +4,14 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        invArr();
+        int[] arrOr = {2, 2, 2, 1, 2, 2, 10, 1};
+        /*invArr();
         fillArr();
         doubSix();
         quadArr(9);
         System.out.println(Arrays.toString(array1(8, 2)));
+        minAndMax();*/
+        System.out.println(checkArr(new int[]{2, 2, 2, 1, 2, 2, 10, 1}));
     }
 
     public static void invArr() {
@@ -58,11 +61,47 @@ public class Main {
         }
     }
 
-    public static int[] array1 (int len, int initialValue) {
+    public static int[] array1(int len, int initialValue) {
         int[] arr1 = new int[len];
         for (int i = 0; i < arr1.length; i++) {
             arr1[i] = initialValue;
         }
         return arr1;
+    }
+
+    public static void minAndMax() {
+        int[] arr = {2, 5, 3, 12, 26, 23, 34, 1};
+        int minV = arr[0], maxV = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > maxV) {
+                maxV = arr[i];
+            }
+            if (arr[i] < minV) {
+                minV = arr[i];
+            }
+        }
+        System.out.println("Максимальное значение элемент массива: " + maxV);
+        System.out.println("Минимальное значение элемта массива: " + minV);
+    }
+
+    public static boolean checkArr(int[] arr) {
+        //int[] arr = {2, 2, 2, 1, 2, 2, 10, 1};
+        for (int i = 0; i < arr.length; i++) {
+            int sumL = 0, sumR = 0;
+            for (int aL = 0; aL <= i; aL++) {
+                sumL += arr[aL];
+            }
+            //System.out.println("LSum= " + sumL);
+            for (int aR = i + 1; aR < arr.length; aR++) {
+                sumR += arr[aR];
+            }
+            //System.out.println("RSum= " + sumR);
+            if (sumL == sumR) {
+                System.out.println("Равенство сумм правой и левой части элементов массива после " + i + " элемента");
+                return true;
+            }
+
+        }
+        return false;
     }
 }
