@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int[] arrOr = {2, 2, 2, 1, 2, 2, 10, 1};
-        /*invArr();
+        invArr();
         fillArr();
         doubSix();
         quadArr(9);
         System.out.println(Arrays.toString(array1(8, 2)));
-        minAndMax();*/
+        minAndMax();
         System.out.println(checkArr(new int[]{2, 2, 2, 1, 2, 2, 10, 1}));
     }
 
