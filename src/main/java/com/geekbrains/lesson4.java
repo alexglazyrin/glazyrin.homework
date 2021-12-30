@@ -50,8 +50,8 @@ public class lesson4 {
 
     public static void printMap() {
         System.out.print("  ");
-        for (int k=0; k<SIZE; k++){
-            System.out.print((k+1) + " ");
+        for (int k = 0; k < SIZE; k++) {
+            System.out.print((k + 1) + " ");
         }
         System.out.println("");
         for (int i = 0; i < SIZE; i++) {
@@ -95,31 +95,32 @@ public class lesson4 {
     }
 
     public static boolean checkWin(char symb) {
-        boolean diag1 = true;
-        boolean diag2 = true;
+        boolean winDiagR = true;
+        boolean winDiagL = true;
+        boolean winH = true;
+        boolean winV = true;
         for (int i = 0; i < SIZE; i++) {
-            diag1 = diag1 & (map[i][i] == symb);
+            winDiagR = winDiagR & (map[i][i] == symb);
         }
-        for (int i1 = 0; i1 < SIZE; i1++) {
-            diag2 = diag2 & (map[i1][SIZE - i1 - 1] == symb);
+        for (int i = 0; i < SIZE; i++) {
+            winDiagL = winDiagL & (map[i][SIZE - i - 1] == symb);
         }
-        /*for (int i1 = 0; i1 < SIZE; i1++) {
-            for (int j1 = 0; j1 < SIZE; j1++) {
-                if (i1 + j1 == SIZE - 1) {
-                    diag2 = diag2 & (map[i1][j1] == symb);
-                }
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j<SIZE; j++){
+                winH = winH & (map[i][j] == symb);
             }
-        }*/
-        if (diag2) return true;
-        if (diag1) return true;
-        /*if (map[0][0] == symb && map[0][1] == symb && map[0][2] == symb) return true;
-        if (map[1][0] == symb && map[1][1] == symb && map[1][2] == symb) return true;
-        if (map[2][0] == symb && map[2][1] == symb && map[2][2] == symb) return true;
-        if (map[0][0] == symb && map[1][0] == symb && map[2][0] == symb) return true;
-        if (map[0][1] == symb && map[1][1] == symb && map[2][1] == symb) return true;
-        if (map[0][2] == symb && map[1][2] == symb && map[2][2] == symb) return true;
-        if (map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) return true;
-        if (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb) return true;*/
+            if (winH) break;
+        }
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j<SIZE; j++){
+                winV = winV & (map[j][i] == symb);
+            }
+            if (winV) break;
+        }
+        if (winDiagR) return true;
+        if (winDiagL) return true;
+        if (winH) return true;
+        if (winV) return true;
         return false;
     }
 
